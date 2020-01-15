@@ -25,7 +25,8 @@
     "update:check": "ng update",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "generate-graphql-interfaces": "ts-node --project ./scripts/tsconfig.json ./scripts/generate-graphql-interfaces.ts"
   },
   "private": true,
   "dependencies": {
