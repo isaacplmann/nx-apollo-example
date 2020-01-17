@@ -3,13 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
     "nx": "nx",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
     "lint": "nx workspace-lint && ng lint",
-    "e2e": "ng e2e",
+    "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",
@@ -21,12 +20,9 @@
     "format": "nx format:write",
     "format:write": "nx format:write",
     "format:check": "nx format:check",
-    "update": "ng update @nrwl/workspace",
-    "update:check": "ng update",
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
-    "help": "nx help",
-    "generate-graphql-interfaces": "ts-node --project ./scripts/tsconfig.json ./scripts/generate-graphql-interfaces.ts"
+    "help": "nx help"
   },
   "private": true,
   "dependencies": {
@@ -44,18 +40,21 @@
     "@nestjs/platform-express": "^6.8.3",
     "@nrwl/angular": "8.11.1",
     "apollo-angular": "^1.8.0",
+    "apollo-angular-link-http": "^1.9.0",
+    "apollo-cache-inmemory": "^1.6.0",
+    "apollo-client": "^2.6.0",
+    "apollo-link": "^1.2.11",
     "apollo-server-express": "^2.9.16",
     "core-js": "^2.5.4",
     "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.0",
     "graphql-tools": "^4.0.6",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.4.0",
     "zone.js": "^0.9.1",
-    "apollo-angular-link-http": "^1.9.0",
-    "apollo-link": "^1.2.11",
-    "apollo-client": "^2.6.0",
-    "apollo-cache-inmemory": "^1.6.0",
-    "graphql-tag": "^2.10.0"
+    "document-register-element": "1.13.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
   },
   "devDependencies": {
     "@angular/cli": "8.3.14",
@@ -81,6 +80,12 @@
     "@nrwl/cypress": "8.11.1",
     "@nrwl/node": "8.11.1",
     "@nestjs/schematics": "^6.7.0",
-    "@nestjs/testing": "^6.8.3"
+    "@nestjs/testing": "^6.8.3",
+    "@nrwl/web": "8.11.1",
+    "@nrwl/react": "8.11.1",
+    "@types/react": "16.9.17",
+    "@types/react-dom": "16.9.4",
+    "@testing-library/react": "9.4.0",
+    "@babel/preset-react": "7.7.4"
   }
 }
