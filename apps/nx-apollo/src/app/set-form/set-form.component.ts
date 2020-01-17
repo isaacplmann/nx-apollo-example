@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SetService } from '../set.service';
+import { AddSetGQL, SetListDocument, SetListQuery } from '../generated/generated';
 @Component({
   selector: 'nx-apollo-example-set-form',
   templateUrl: './set-form.component.html',
@@ -9,7 +9,7 @@ import { SetService } from '../set.service';
 export class SetFormComponent {
   newSetForm: FormGroup;
 
-  constructor(private setService: SetService, private fb: FormBuilder) {
+  constructor(private addSetGQL: AddSetGQL, private fb: FormBuilder) {
 
     this.newSetForm = this.fb.group(
       {
@@ -24,7 +24,16 @@ export class SetFormComponent {
     if (this.newSetForm.valid) {
       const newSet = { name: this.newSetForm.get('name').value, year: this.newSetForm.get('year').value, numParts: +this.newSetForm.get('numParts').value };
 
-      this.setService.addSet(newSet).subscribe(() => {
+      this.addSetGQL.mutate(newSet)
+
+      this.addSetGQL.mutate(newSet, {
+        update: (store, result) => {
+          const data: SetListQuery = store.readQuery({ query: SetListDocument });
+          data.allSets = [...data.allSets, result.data.addSet];
+          // Write our data back to the cache.
+          store.writeQuery({ query: SetListDocument, data });
+        }
+      }).subscribe(() => {
         this.newSetForm.reset();
       });
     }
