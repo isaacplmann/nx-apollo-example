@@ -284,6 +284,16 @@
             "jestConfig": "apps/nx-apollo-react/jest.config.js",
             "tsConfig": "apps/nx-apollo-react/tsconfig.spec.json"
           }
+        },
+        "generate": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx graphql-codegen --config apps/nx-apollo-react/codegen.yml"
+              }
+            ]
+          }
         }
       }
     },
