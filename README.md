@@ -7,11 +7,14 @@ This project was generated using [Nx](https://nx.dev).
 🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
 ## Run demo
+GraphQL API
+- `npm start api`
+
 [Angular](https://angular.io)
-- `npm start api && npm start nx-apollo`
+- `npm start nx-apollo`
 
 [React](https://reactjs.org)
-- `npm start api && npm start nx-apollo-react`
+- `npm start nx-apollo-react`
 
 ## What you’ll create
 In this article, we’ll be creating a simple GraphQL API that will allow us to track some information about Lego sets. We’ll create this API using NestJS, and it will be consumed by both an Angular and a React application. We’ll have this all inside of a Nx Workspace in a single repository.
